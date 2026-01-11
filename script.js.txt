@@ -1,0 +1,34 @@
+function getThumbnail() {
+    const url = document.getElementById('videoUrl').value;
+    const resultArea = document.getElementById('resultArea');
+    
+    // YouTube ID extraction regex
+    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const match = url.match(regex);
+
+    if (match && match[1]) {
+        const videoId = match[1];
+        
+        // Different Quality URLs
+        const maxUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        const sdUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+        const mqUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
+        // Update Images
+        document.getElementById('maxImg').src = maxUrl;
+        document.getElementById('sdImg').src = sdUrl;
+        document.getElementById('mqImg').src = mqUrl;
+
+        // Update Links
+        document.getElementById('maxDown').href = maxUrl;
+        document.getElementById('sdDown').href = sdUrl;
+        document.getElementById('mqDown').href = mqUrl;
+
+        resultArea.style.display = 'block';
+        
+        // Scroll to results
+        resultArea.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert("Opps! Please enter a valid YouTube link.");
+    }
+}

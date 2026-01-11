@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro YouTube Thumbnail Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Thumbnail Downloader</h1>
+        <p>Paste the YouTube video link below to get all available qualities</p>
+        
+        <div class="input-area">
+            <input type="text" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." required>
+            <button onclick="getThumbnail()">Get Thumbnails</button>
+        </div>
+
+        <div id="resultArea" class="result-area" style="display: none;">
+            <div class="thumb-card">
+                <h3>Maximum Quality (HD)</h3>
+                <img id="maxImg" src="" alt="HD Thumbnail">
+                <a id="maxDown" href="#" target="_blank" class="btn">Download HD</a>
+            </div>
+
+            <div class="grid-container">
+                <div class="thumb-card">
+                    <h4>Standard Quality</h4>
+                    <img id="sdImg" src="" alt="SD Thumbnail">
+                    <a id="sdDown" href="#" target="_blank" class="btn btn-blue">Download SD</a>
+                </div>
+                <div class="thumb-card">
+                    <h4>Normal Quality</h4>
+                    <img id="mqImg" src="" alt="MQ Thumbnail">
+                    <a id="mqDown" href="#" target="_blank" class="btn btn-blue">Download MQ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
